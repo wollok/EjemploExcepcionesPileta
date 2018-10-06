@@ -1,0 +1,18 @@
+import pileta.*
+
+describe "vacaciones en la pileta"{
+	var juan = new Persona(contento = false)
+	var maria = new Persona(contento = false, cantZambullidas = 10)
+	
+	test "En las vacaciones la pileta se llena y las personas se alegran" {
+		juan.vacaciones()
+		assert.that(juan.contento())
+		assert.equals(999,pileta.agua())
+	}
+	test "cuando se corta el agua, todo mal!" {
+		pileta.seCortoElAgua(true)
+		assert.throwsExceptionWithMessage("sin agua", {maria.vacaciones()})
+		
+		
+	}
+}
